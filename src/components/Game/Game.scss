@@ -1,0 +1,73 @@
+@import "../../variables.scss";
+
+.g-wrapper {
+  position: relative;
+  top: 60px;
+  left: 0;
+  width: 90%;
+  margin: 0 5%;
+
+  height: calc(100% - 60px);
+
+  .game-main-container {
+  }
+
+  .game-start-container {
+    > * {
+      width: 100%;
+    }
+    .instructions {
+      font-family: "Poppins";
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+      margin: 20px 0;
+      color: $primary-tc;
+
+      > div {
+        margin-top: 10px;
+      }
+    }
+
+    .start-button {
+      text-align: center;
+      border-radius: 5px;
+      width: 200px;
+      padding: 15px;
+      box-sizing: border-box;
+      background-color: $primary-bg;
+      color: $secondary-tc;
+      font-family: "Sigmar One";
+      font-size: 24px;
+      letter-spacing: 2px;
+      border-bottom: 3px solid $primary-border-color;
+      cursor: pointer;
+
+      &:active {
+        background-color: $primary-border-color;
+        border-bottom: 3px solid $primary-bg;
+      }
+    }
+  }
+
+  .app-unexpected-error {
+    font-family: "Poppins";
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: $primary-tc;
+
+    > a {
+      color: $primary-border-color;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .g-wrapper {
+    width: 60%;
+    margin: 0 20%;
+  }
+}

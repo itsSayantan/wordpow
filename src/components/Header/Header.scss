@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .header {
   position: absolute;
   top: 0;
@@ -8,13 +10,19 @@
   .brand {
     font-family: "Sigmar One";
     font-size: 24px;
+    background: linear-gradient(to right, $primary-bg, $primary-border-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .links {
     a {
-      .img {
-        width: 30px;
-        height: 30px;
+      width: 30px;
+      height: 30px;
+
+      img {
+        object-fit: contain;
       }
     }
   }
