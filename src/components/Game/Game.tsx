@@ -1,5 +1,7 @@
 import React, { KeyboardEvent } from "react";
 
+import { getRandomWord } from "../../utils";
+
 import PowIcon from "../../assets/images/pow.svg";
 
 import "./Game.scss";
@@ -20,7 +22,7 @@ const Game = () => {
   const [gameState, setStarted] = React.useState(GAME_STATE.START);
   const [typingEnabled, setTypingEnabled] = React.useState(false);
   const [inputText, setInputText] = React.useState("");
-  const [words, setWords] = React.useState(["Computer", "Smart"]);
+  const [words, setWords] = React.useState([getRandomWord(), getRandomWord()]);
 
   const startGame = (): void => {
     if (inputRef.current) {
@@ -40,7 +42,8 @@ const Game = () => {
   const updateCurrentWord = (val: string): void => {
     if (val.length === words[0].length) {
       // the word is successfully typed
-      setWords([words[1], "LOL"]);
+      const newWord = getRandomWord();
+      setWords([words[1], newWord]);
       resetInput();
     }
   };
