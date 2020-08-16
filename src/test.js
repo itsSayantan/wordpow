@@ -10,7 +10,7 @@ if (l !== Array.from(new Set(words)).length) {
 }
 
 for (let i = 0; i < l; ++i) {
-  if (!words[i].match(/^[A-Za-z\-]+$/)) {
+  if (!words[i].match(/^[A-Za-z\-']+$/)) {
     errorWords.push(words[i]);
   }
 }
