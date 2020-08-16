@@ -1,0 +1,25 @@
+@import "../../variables.scss";
+
+.footer-wrapper {
+  position: relative;
+  top: 60px;
+  left: 10%;
+  width: 80%;
+  height: 60px;
+
+  .version {
+    color: $primary-border-color;
+    margin-right: 10px;
+    font-family: "Poppins";
+    font-size: 14px;
+  }
+
+  .credits {
+    font-size: 12px;
+
+    > a {
+      color: $primary-border-color;
+      text-decoration: none;
+    }
+  }
+}
