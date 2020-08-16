@@ -24,6 +24,7 @@
       font-family: "Poppins";
       font-size: 34px;
       color: $primary-border-color;
+      word-break: break-all;
 
       > span {
         opacity: 0.3;
@@ -35,6 +36,7 @@
       font-family: "Poppins";
       font-size: 18px;
       opacity: 0.25;
+      word-break: break-all;
     }
   }
 
