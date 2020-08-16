@@ -10,10 +10,7 @@
   .brand {
     font-family: "Sigmar One";
     font-size: 24px;
-    background: linear-gradient(to right, $primary-bg, $primary-border-color);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
   }
 
   .links {

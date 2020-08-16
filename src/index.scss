@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Sigmar+One&display=swap");
+@import "./variables.scss";
 
 body {
   margin: 0;
@@ -23,4 +24,44 @@ body {
 .pow-icon {
   width: 100px;
   height: 100px;
+}
+
+.animated-text {
+  background: linear-gradient(to right, $primary-bg, $primary-border-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: 0.7s animate-text infinite;
+}
+
+@keyframes animate-text {
+  0% {
+    background-image: linear-gradient(
+      to right,
+      $primary-bg,
+      $primary-border-color
+    );
+  }
+  25% {
+    background-image: linear-gradient(
+      to bottom,
+      $primary-bg,
+      $primary-border-color
+    );
+  }
+  75% {
+    background-image: linear-gradient(
+      to left,
+      $primary-bg,
+      $primary-border-color
+    );
+  }
+  100% {
+    background-image: linear-gradient(
+      to right,
+      $primary-bg,
+      $primary-border-color
+    );
+  }
 }

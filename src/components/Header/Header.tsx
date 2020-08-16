@@ -7,7 +7,7 @@ import "./Header.scss";
 const Header = () => {
   return (
     <div className="header f-jcsb">
-      <div className="brand">W O R D P O W</div>
+      <div className="brand animated-text">WORDPOW</div>
       <div className="links f-jcc">
         <a href="https://github.com/itsSayantan/wordpow">
           <img src={GithubLogo} alt="Github Link" />

@@ -6,10 +6,36 @@
   left: 0;
   width: 90%;
   margin: 0 5%;
-
   height: calc(100% - 60px);
 
+  > input {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    opacity: 0;
+  }
+
   .game-main-container {
+    .w-1 {
+      text-align: center;
+      font-family: "Poppins";
+      font-size: 34px;
+      color: $primary-border-color;
+
+      > span {
+        opacity: 0.3;
+      }
+    }
+
+    .w-2 {
+      text-align: center;
+      font-family: "Poppins";
+      font-size: 18px;
+      opacity: 0.25;
+    }
   }
 
   .game-start-container {
