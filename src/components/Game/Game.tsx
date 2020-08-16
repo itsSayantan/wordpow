@@ -9,6 +9,7 @@ import "./Game.scss";
 enum GAME_STATE {
   START,
   IN_GAME,
+  GAME_OVER,
 }
 
 const disallowdKeys: Array<number> = [8];
@@ -19,17 +20,31 @@ const Game = () => {
   const w1Ref: React.RefObject<HTMLDivElement> = React.createRef();
   const w2Ref: React.RefObject<HTMLDivElement> = React.createRef();
 
-  const [gameState, setStarted] = React.useState(GAME_STATE.START);
+  const [gameState, setGameState] = React.useState(GAME_STATE.START);
   const [typingEnabled, setTypingEnabled] = React.useState(false);
   const [inputText, setInputText] = React.useState("");
   const [words, setWords] = React.useState([getRandomWord(), getRandomWord()]);
+  const [score, setScore] = React.useState(0);
+  const [startTime, setStartTime] = React.useState(-1);
+  const [endTime, setEndTime] = React.useState(-1);
 
   const startGame = (): void => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
     setTypingEnabled(true);
-    setStarted(GAME_STATE.IN_GAME);
+    setGameState(GAME_STATE.IN_GAME);
+    setStartTime(Date.now());
+  };
+
+  const restartGame = (): void => {
+    setGameState(GAME_STATE.START);
+    setTypingEnabled(false);
+    setInputText("");
+    setWords([getRandomWord(), getRandomWord()]);
+    setScore(0);
+    setStartTime(-1);
+    setEndTime(-1);
   };
 
   const resetInput = (): void => {
@@ -39,12 +54,24 @@ const Game = () => {
     }
   };
 
+  const showErrorText = (): void => {
+    if (w1Ref.current) {
+      w1Ref.current.classList.add("error-text");
+      setTimeout(() => {
+        w1Ref.current?.classList.remove("error-text");
+      }, 300);
+    }
+  };
+
   const updateCurrentWord = (val: string): void => {
     if (val.length === words[0].length) {
       // the word is successfully typed
       const newWord = getRandomWord();
-      setWords([words[1], newWord]);
-      resetInput();
+      setTimeout(() => {
+        setWords([words[1], newWord]);
+        resetInput();
+        setScore(score + 1);
+      }, 0);
     }
   };
 
@@ -64,7 +91,11 @@ const Game = () => {
           // error case
           setTypingEnabled(false);
           resetInput();
-          alert("game over");
+          // set the end time before doing anything else
+          setEndTime(Date.now());
+          // show the error text for 300 milliseconds and then change the game state to GAME_OVER
+          showErrorText();
+          setTimeout(() => setGameState(GAME_STATE.GAME_OVER), 300);
         }
       }
     }
@@ -104,6 +135,23 @@ const Game = () => {
             </div>
             <div ref={w2Ref} className="w-2">
               {words[1]}
+            </div>
+          </div>
+        );
+      }
+      case GAME_STATE.GAME_OVER: {
+        return (
+          <div className="f-jcc fw game-over-container">
+            <h3>GAME OVER</h3>
+            <p>
+              Your Score: <b>{score}</b>
+            </p>
+            <p>
+              Words per minute:{" "}
+              <b>{score / ((endTime - startTime) / 1000 / 60)}</b>
+            </p>
+            <div className="restart-button" onClick={restartGame}>
+              RESTART
             </div>
           </div>
         );

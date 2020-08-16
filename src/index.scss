@@ -35,6 +35,11 @@ body {
   animation: 0.7s animate-text infinite;
 }
 
+.error-text {
+  color: $error-tc;
+  animation: 0.3s shake-error-text infinite;
+}
+
 @keyframes animate-text {
   0% {
     background-image: linear-gradient(
@@ -63,5 +68,32 @@ body {
       $primary-bg,
       $primary-border-color
     );
+  }
+}
+
+@keyframes shake-error-text {
+  12.5% {
+    transform: rotate(3.5deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  37.5% {
+    transform: rotate(-3.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  62.5% {
+    transform: rotate(3.5deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  87.5% {
+    transform: rotate(-3.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }

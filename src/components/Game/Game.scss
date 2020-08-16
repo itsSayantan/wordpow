@@ -76,6 +76,37 @@
     }
   }
 
+  .game-over-container {
+    > * {
+      text-align: center;
+      width: 100%;
+    }
+
+    > h3 {
+      font-family: "Poppins";
+      color: $primary-border-color;
+    }
+
+    > p {
+      font-family: "Poppins";
+      font-size: 16px;
+    }
+
+    > .restart-button {
+      border-radius: 5px;
+      width: 200px;
+      padding: 15px;
+      box-sizing: border-box;
+      background-color: $secondary-tc;
+      color: $primary-border-color;
+      font-family: "Poppins";
+      font-size: 24px;
+      letter-spacing: 2px;
+      border: 1px solid $primary-border-color;
+      cursor: pointer;
+    }
+  }
+
   .app-unexpected-error {
     font-family: "Poppins";
     font-size: 16px;
