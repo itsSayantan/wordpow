@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ae198c8d15a3c68ac811405a5e9fefea",
+    "revision": "0155986f3b92070a2234549bd676ffdd",
     "url": "/wordpow/index.html"
   },
   {
-    "revision": "310218629e4bb36439c0",
+    "revision": "00c1c5ea5e4651bbc791",
     "url": "/wordpow/static/css/main.06d9fc6f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wordpow/static/js/2.286ea655.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "310218629e4bb36439c0",
-    "url": "/wordpow/static/js/main.69c379ec.chunk.js"
+    "revision": "00c1c5ea5e4651bbc791",
+    "url": "/wordpow/static/js/main.ca97a15e.chunk.js"
   },
   {
     "revision": "4a5846e53804c271aa93",
