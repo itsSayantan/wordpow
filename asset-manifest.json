@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wordpow/static/css/main.06d9fc6f.chunk.css",
-    "main.js": "/wordpow/static/js/main.ca97a15e.chunk.js",
-    "main.js.map": "/wordpow/static/js/main.ca97a15e.chunk.js.map",
+    "main.js": "/wordpow/static/js/main.1139ab1c.chunk.js",
+    "main.js.map": "/wordpow/static/js/main.1139ab1c.chunk.js.map",
     "runtime-main.js": "/wordpow/static/js/runtime-main.de19762d.js",
     "runtime-main.js.map": "/wordpow/static/js/runtime-main.de19762d.js.map",
     "static/js/2.286ea655.chunk.js": "/wordpow/static/js/2.286ea655.chunk.js",
     "static/js/2.286ea655.chunk.js.map": "/wordpow/static/js/2.286ea655.chunk.js.map",
     "index.html": "/wordpow/index.html",
-    "precache-manifest.7e6afccce65c8fc194a1e78fc2dbd3df.js": "/wordpow/precache-manifest.7e6afccce65c8fc194a1e78fc2dbd3df.js",
+    "precache-manifest.a5e3cee75b85fe700ef425f5351913ec.js": "/wordpow/precache-manifest.a5e3cee75b85fe700ef425f5351913ec.js",
     "service-worker.js": "/wordpow/service-worker.js",
     "static/css/main.06d9fc6f.chunk.css.map": "/wordpow/static/css/main.06d9fc6f.chunk.css.map",
     "static/js/2.286ea655.chunk.js.LICENSE.txt": "/wordpow/static/js/2.286ea655.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.de19762d.js",
     "static/js/2.286ea655.chunk.js",
     "static/css/main.06d9fc6f.chunk.css",
-    "static/js/main.ca97a15e.chunk.js"
+    "static/js/main.1139ab1c.chunk.js"
   ]
 }
