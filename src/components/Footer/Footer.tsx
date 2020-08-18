@@ -5,7 +5,7 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <div className="f-jcsb footer-wrapper">
-      <div className="version">v1.0.2</div>
+      <div className="version">v1.0.3</div>
       <div className="credits">
         Icons made by{" "}
         <a

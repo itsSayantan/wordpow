@@ -210,7 +210,7 @@ const Game = () => {
 
   return (
     <div className="f-jcc g-wrapper">
-      <input ref={inputRef} type="text" onKeyPress={handleInputChange} />
+      <input ref={inputRef} type="text" onKeyUp={handleInputChange} />
       {getContainer(gameState)}
     </div>
   );

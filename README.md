@@ -12,6 +12,12 @@ You can add more words in the `words.json` file located in the src folder. Just 
 
 ## Releases
 
+### v1.0.3
+
+<u>Stable Release 3</u>
+
+- Keypress issue fixed for mobile browsers.
+
 ### v1.0.2
 
 <u>Stable Release 2</u>
