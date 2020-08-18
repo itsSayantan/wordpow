@@ -5,7 +5,7 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <div className="f-jcsb footer-wrapper">
-      <div className="version">v1.0.0</div>
+      <div className="version">v1.0.1</div>
       <div className="credits">
         Icons made by{" "}
         <a
@@ -15,11 +15,21 @@ const Footer = () => {
           Pixel perfect
         </a>{" "}
         and{" "}
-        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.flaticon.com/authors/freepik"
+          title="Freepik"
+        >
           Freepik
         </a>{" "}
         from{" "}
-        <a href="https://www.flaticon.com/" title="Flaticon">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.flaticon.com/"
+          title="Flaticon"
+        >
           www.flaticon.com
         </a>
       </div>

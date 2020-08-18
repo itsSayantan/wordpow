@@ -78,7 +78,8 @@
     }
   }
 
-  .game-over-container {
+  .game-over-container,
+  .game-paused-container {
     > * {
       text-align: center;
       width: 100%;
@@ -94,7 +95,8 @@
       font-size: 16px;
     }
 
-    > .restart-button {
+    > .restart-button,
+    > .resume-button {
       border-radius: 5px;
       width: 200px;
       padding: 15px;

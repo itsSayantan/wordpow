@@ -1,6 +1,6 @@
 import React, { KeyboardEvent } from "react";
 
-import { getRandomWord } from "../../utils";
+import { getRandomWord, calculateWPM } from "../../utils";
 
 import PowIcon from "../../assets/images/pow.svg";
 
@@ -9,6 +9,7 @@ import "./Game.scss";
 enum GAME_STATE {
   START,
   IN_GAME,
+  PAUSED,
   GAME_OVER,
 }
 
@@ -25,13 +26,11 @@ const Game = () => {
   const [inputText, setInputText] = React.useState("");
   const [words, setWords] = React.useState([getRandomWord(), getRandomWord()]);
   const [score, setScore] = React.useState(0);
+  const [time, setTime] = React.useState(0);
   const [startTime, setStartTime] = React.useState(-1);
   const [endTime, setEndTime] = React.useState(-1);
 
   const startGame = (): void => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
     setTypingEnabled(true);
     setGameState(GAME_STATE.IN_GAME);
     setStartTime(Date.now());
@@ -43,8 +42,25 @@ const Game = () => {
     setInputText("");
     setWords([getRandomWord(), getRandomWord()]);
     setScore(0);
+    setTime(0);
     setStartTime(-1);
     setEndTime(-1);
+  };
+
+  const pauseGame = React.useCallback((): void => {
+    if (gameState === GAME_STATE.GAME_OVER) {
+      return;
+    }
+    setGameState(GAME_STATE.PAUSED);
+    setTime(time + (Date.now() - startTime));
+    setStartTime(-1);
+    setTypingEnabled(false);
+  }, [time, gameState, startTime]);
+
+  const resumeGame = (): void => {
+    setGameState(GAME_STATE.IN_GAME);
+    setStartTime(Date.now());
+    setTypingEnabled(true);
   };
 
   const resetInput = (): void => {
@@ -59,7 +75,7 @@ const Game = () => {
       w1Ref.current.classList.add("error-text");
       setTimeout(() => {
         w1Ref.current?.classList.remove("error-text");
-      }, 300);
+      }, 700);
     }
   };
 
@@ -67,11 +83,9 @@ const Game = () => {
     if (val.length === words[0].length) {
       // the word is successfully typed
       const newWord = getRandomWord();
-      setTimeout(() => {
-        setWords([words[1], newWord]);
-        resetInput();
-        setScore(score + 1);
-      }, 0);
+      setWords([words[1], newWord]);
+      resetInput();
+      setScore(score + 1);
     }
   };
 
@@ -89,17 +103,41 @@ const Game = () => {
           updateCurrentWord(inputText + val);
         } else {
           // error case
-          setTypingEnabled(false);
           resetInput();
           // set the end time before doing anything else
           setEndTime(Date.now());
-          // show the error text for 300 milliseconds and then change the game state to GAME_OVER
+          // show the error text for 700 milliseconds and then change the game state to GAME_OVER
           showErrorText();
-          setTimeout(() => setGameState(GAME_STATE.GAME_OVER), 300);
+          setTimeout(() => {
+            setGameState(GAME_STATE.GAME_OVER);
+            setTypingEnabled(false);
+          }, 700);
         }
       }
     }
   };
+
+  React.useEffect(() => {
+    const inp = inputRef.current;
+    if (inp) {
+      inp.addEventListener("blur", pauseGame);
+    }
+    return () => {
+      inp?.removeEventListener("blur", pauseGame);
+    };
+  }, [inputRef, pauseGame]);
+
+  React.useEffect(() => {
+    if (typingEnabled) {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    } else {
+      if (inputRef.current) {
+        inputRef.current.blur();
+      }
+    }
+  }, [typingEnabled, inputRef]);
 
   const getContainer = (gameState: any): JSX.Element => {
     switch (gameState) {
@@ -139,6 +177,17 @@ const Game = () => {
           </div>
         );
       }
+      case GAME_STATE.PAUSED: {
+        return (
+          <div className="f-jcc fw game-paused-container">
+            <h3>PAUSED</h3>
+            <p>Don't worry. Your progress is not lost.</p>
+            <div className="resume-button" onClick={resumeGame}>
+              RESUME
+            </div>
+          </div>
+        );
+      }
       case GAME_STATE.GAME_OVER: {
         return (
           <div className="f-jcc fw game-over-container">
@@ -148,7 +197,7 @@ const Game = () => {
             </p>
             <p>
               Words per minute:{" "}
-              <b>{score / ((endTime - startTime) / 1000 / 60)}</b>
+              <b>{calculateWPM(score, time, startTime, endTime)}</b>
             </p>
             <div className="restart-button" onClick={restartGame}>
               RESTART

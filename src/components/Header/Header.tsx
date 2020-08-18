@@ -9,7 +9,11 @@ const Header = () => {
     <div className="header f-jcsb">
       <div className="brand animated-text">WORDPOW</div>
       <div className="links f-jcc">
-        <a href="https://github.com/itsSayantan/wordpow">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/itsSayantan/wordpow"
+        >
           <img src={GithubLogo} alt="Github Link" />
         </a>
       </div>
