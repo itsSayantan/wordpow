@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/wordpow/static/css/main.387514fc.chunk.css",
-    "main.js": "/wordpow/static/js/main.2b3fff83.chunk.js",
-    "main.js.map": "/wordpow/static/js/main.2b3fff83.chunk.js.map",
+    "main.css": "/wordpow/static/css/main.06d9fc6f.chunk.css",
+    "main.js": "/wordpow/static/js/main.69c379ec.chunk.js",
+    "main.js.map": "/wordpow/static/js/main.69c379ec.chunk.js.map",
     "runtime-main.js": "/wordpow/static/js/runtime-main.de19762d.js",
     "runtime-main.js.map": "/wordpow/static/js/runtime-main.de19762d.js.map",
     "static/js/2.286ea655.chunk.js": "/wordpow/static/js/2.286ea655.chunk.js",
     "static/js/2.286ea655.chunk.js.map": "/wordpow/static/js/2.286ea655.chunk.js.map",
     "index.html": "/wordpow/index.html",
-    "precache-manifest.6e63f00478197523cee0dc8603a7ab5c.js": "/wordpow/precache-manifest.6e63f00478197523cee0dc8603a7ab5c.js",
+    "precache-manifest.ea2221a2abb669530d59658c3aa2cbd5.js": "/wordpow/precache-manifest.ea2221a2abb669530d59658c3aa2cbd5.js",
     "service-worker.js": "/wordpow/service-worker.js",
-    "static/css/main.387514fc.chunk.css.map": "/wordpow/static/css/main.387514fc.chunk.css.map",
+    "static/css/main.06d9fc6f.chunk.css.map": "/wordpow/static/css/main.06d9fc6f.chunk.css.map",
     "static/js/2.286ea655.chunk.js.LICENSE.txt": "/wordpow/static/js/2.286ea655.chunk.js.LICENSE.txt",
     "static/media/github.svg": "/wordpow/static/media/github.1f33e75d.svg",
     "static/media/pow.svg": "/wordpow/static/media/pow.169efc69.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.de19762d.js",
     "static/js/2.286ea655.chunk.js",
-    "static/css/main.387514fc.chunk.css",
-    "static/js/main.2b3fff83.chunk.js"
+    "static/css/main.06d9fc6f.chunk.css",
+    "static/js/main.69c379ec.chunk.js"
   ]
 }
