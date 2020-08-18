@@ -19,7 +19,6 @@ const ignoredKeys: Array<number> = [16];
 const Game = () => {
   const inputRef: React.RefObject<HTMLInputElement> = React.createRef();
   const w1Ref: React.RefObject<HTMLDivElement> = React.createRef();
-  const w2Ref: React.RefObject<HTMLDivElement> = React.createRef();
 
   const [gameState, setGameState] = React.useState(GAME_STATE.START);
   const [typingEnabled, setTypingEnabled] = React.useState(false);
@@ -31,6 +30,9 @@ const Game = () => {
   const [endTime, setEndTime] = React.useState(-1);
 
   const startGame = (): void => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
     setTypingEnabled(true);
     setGameState(GAME_STATE.IN_GAME);
     setStartTime(Date.now());
@@ -58,6 +60,9 @@ const Game = () => {
   }, [time, gameState, startTime]);
 
   const resumeGame = (): void => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
     setGameState(GAME_STATE.IN_GAME);
     setStartTime(Date.now());
     setTypingEnabled(true);
@@ -127,18 +132,6 @@ const Game = () => {
     };
   }, [inputRef, pauseGame]);
 
-  React.useEffect(() => {
-    if (typingEnabled) {
-      if (inputRef.current) {
-        inputRef.current.focus();
-      }
-    } else {
-      if (inputRef.current) {
-        inputRef.current.blur();
-      }
-    }
-  }, [typingEnabled, inputRef]);
-
   const getContainer = (gameState: any): JSX.Element => {
     switch (gameState) {
       case GAME_STATE.START: {
@@ -171,9 +164,7 @@ const Game = () => {
                 </>
               )}
             </div>
-            <div ref={w2Ref} className="w-2">
-              {words[1]}
-            </div>
+            <div className="w-2">{words[1]}</div>
           </div>
         );
       }

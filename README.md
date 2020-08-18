@@ -12,6 +12,13 @@ You can add more words in the `words.json` file located in the src folder. Just 
 
 ## Releases
 
+### v1.0.2
+
+<u>Stable Release 2</u>
+
+- Focus issue in mobile phones fixed.
+- Unused ref removed.
+
 ### v1.0.1
 
 <u>Stable Release 1:</u>
